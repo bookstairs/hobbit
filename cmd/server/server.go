@@ -1,6 +1,10 @@
 package main
 
-import "github.com/spf13/cobra"
+import (
+	"github.com/spf13/cobra"
+
+	"github.com/syhily/hobbit/version"
+)
 
 var serverCmd = &cobra.Command{
 	Use:   "hobbit-server",
@@ -10,6 +14,10 @@ var serverCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		// This main function.
 	},
+}
+
+func init() {
+	serverCmd.AddCommand(version.VersionCmd)
 }
 
 func main() {

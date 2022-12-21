@@ -1,6 +1,10 @@
 package main
 
-import "github.com/spf13/cobra"
+import (
+	"github.com/spf13/cobra"
+
+	"github.com/syhily/hobbit/version"
+)
 
 var clientCmd = &cobra.Command{
 	Use:   "hobbit-client",
@@ -10,6 +14,10 @@ var clientCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		// This main function.
 	},
+}
+
+func init() {
+	clientCmd.AddCommand(version.VersionCmd)
 }
 
 func main() {
